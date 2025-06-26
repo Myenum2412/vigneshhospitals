@@ -110,9 +110,9 @@ export function Header() {
             className="rounded-full"
             priority
           />
-          <div className="hidden sm:block">
+          <div className="block sm:hidden">
             <h1 className="font-bold text-lg text-emerald-600">Vignesh Hospital</h1>
-            <p className="text-xs text-muted-foreground">Siddha & Homeopathy</p>
+            <p className="text-xs text-muted-foreground">Siddha & Homoeopathy</p>
           </div>
         </Link>
 
