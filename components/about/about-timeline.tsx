@@ -14,7 +14,7 @@ export function AboutTimeline() {
       year: "1995",
       title: "The Beginning",
       description:
-        "Dr. Vignesh Senior founded the hospital with a vision to provide authentic traditional medicine to the community.",
+        "Dr. P. Ravi Senior founded the hospital with a vision to provide authentic traditional medicine to the community.",
       icon: Building,
       color: "from-green-500 to-emerald-500",
       bgColor: "bg-green-50",
@@ -44,7 +44,7 @@ export function AboutTimeline() {
       year: "2010",
       title: "Second Generation",
       description:
-        "Dr. Vignesh Kumar joined, bringing fresh perspectives while preserving traditional wisdom and values.",
+        "A new generation joined, bringing fresh perspectives while preserving traditional wisdom and values to continue the hospital's legacy.",
       icon: Users,
       color: "from-orange-500 to-red-500",
       bgColor: "bg-orange-50",
@@ -64,7 +64,7 @@ export function AboutTimeline() {
       year: "2020",
       title: "Third Generation",
       description:
-        "Dr. Priya and Dr. Rajesh Vignesh joined, continuing the family legacy with modern medical knowledge.",
+        "Dr. R. Ragavendra Balaji joined, continuing the family legacy with modern medical knowledge.",
       icon: Users,
       color: "from-indigo-500 to-purple-500",
       bgColor: "bg-indigo-50",
