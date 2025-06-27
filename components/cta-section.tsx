@@ -41,7 +41,7 @@ export function CTASection() {
               variant="outline"
               className="bg-white text-green-600 hover:bg-gray-100"
             >
-              <Link href="https://wa.me/919876543210">
+              <Link href="https://wa.me/919851234547">
                 <MessageCircle className="h-5 w-5 mr-2" />
                 WhatsApp
               </Link>
