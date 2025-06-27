@@ -43,7 +43,7 @@ const doctorData = {
   experience: "15+ Years",
   location: "Salem, Tamil Nadu",
   clinic: "Vignesh Hospital",
-  consultationFee: "₹300 - ₹500",
+  consultationFee: "₹200",
   whatsappNumber: "+919626361797",
   image: "/images/ragavendra-balaji.jpeg", // ✅ fixed image path
   rating: 4.8,
