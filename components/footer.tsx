@@ -183,8 +183,8 @@ export function Footer() {
                   </div>
                   <div className="flex items-center space-x-2 mt-1">
                     <Phone className="h-4 w-4 text-emerald-400 flex-shrink-0" aria-hidden="true" />
-                    <a href="https://wa.me/919361202502" className="hover:text-emerald-400 transition-colors">
-                      WhatsApp: +91 93612 02502
+                    <a href="https://wa.me/919851234547" className="hover:text-emerald-400 transition-colors">
+                      WhatsApp: +91 98512 34547
                     </a>
                   </div>
                 </div>
