@@ -58,7 +58,7 @@ const doctors = [
     image: "/images/ragavendra-balaji.jpeg",
     rating: 4.9,
     patients: "5000+",
-    consultationFee: "₹100",
+    consultationFee: "₹200",
     availability: "Mon-Sat: 10AM-1PM, 5PM-8:30PM",
     languages: ["Tamil", "English", "Malayalam","Hindi"],
     about:
