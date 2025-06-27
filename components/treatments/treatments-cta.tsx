@@ -99,7 +99,7 @@ export function TreatmentsCTA() {
                   size="lg"
                   className="border-green-200 text-green-700 hover:bg-green-50 flex-1"
                 >
-                  <Link href="tel:+919876543210">
+                  <Link href="tel:+919626361797">
                     <Phone className="h-5 w-5 mr-2" />
                     Call Now
                   </Link>
@@ -120,7 +120,7 @@ export function TreatmentsCTA() {
                 </div>
                 <div>
                   <div className="text-sm text-gray-600 mb-1">WhatsApp</div>
-                  <div className="text-lg font-semibold text-gray-900">+91 93612 02502</div>
+                  <div className="text-lg font-semibold text-gray-900">+91 98512 34547</div>
                 </div>
                 <div>
                   <div className="text-sm text-gray-600 mb-1">Email</div>
@@ -130,7 +130,7 @@ export function TreatmentsCTA() {
 
               <div className="space-y-3 mb-6">
                 <Button asChild variant="outline" className="w-full border-green-200 text-green-700 hover:bg-green-50">
-                  <Link href="https://wa.me/919361202502">
+                  <Link href="https://wa.me/+919851234547">
                     <MessageCircle className="h-4 w-4 mr-2" />
                     WhatsApp Chat
                   </Link>
