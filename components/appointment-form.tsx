@@ -271,12 +271,13 @@ export function AppointmentForm() {
 
     const pdfBlob = doc.output("blob")
     const pdfUrl = URL.createObjectURL(pdfBlob)
-    return pdfUrl
+    return { pdfUrl, pdfBlob }
   }
 
   const sendToWhatsApp = () => {
-    const doctorWhatsApp = "919361202502"
+    const doctorWhatsApp = "919851234547"
     
+    // Create a message with all form data
     const whatsappMessage = `
 🏥 *VIGNESH MULTI SPECIALITY HOSPITAL*
 📋 *New Appointment Request*
@@ -306,24 +307,86 @@ ${formData.notes || "No additional notes"}
 *Request submitted on:* ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
     `.trim()
 
+    // For WhatsApp, we can only send text and not files directly
     const whatsappUrl = `https://wa.me/${doctorWhatsApp}?text=${encodeURIComponent(whatsappMessage)}`
     window.open(whatsappUrl, "_blank")
   }
 
   const sendToEmail = async (pdfBlob: Blob) => {
-    const formData = new FormData()
-    formData.append("email", "vigneshospital@gmail.com")
-    formData.append("subject", `New Appointment Request - ${this.formData.firstName} ${this.formData.lastName}`)
-    formData.append("message", "Please find attached the appointment request details.")
-    formData.append("attachment", pdfBlob, `Appointment_${this.formData.firstName}_${this.formData.lastName}.pdf`)
+    const emailData = new FormData()
+    emailData.append("to", "vigneshospital@gmail.com")
+    emailData.append("subject", `New Appointment Request - ${formData.firstName} ${formData.lastName}`)
+    emailData.append("text", `
+      New appointment request received:
+      
+      Patient Name: ${formData.firstName} ${formData.lastName}
+      Age: ${formData.age}
+      Gender: ${formData.gender}
+      Phone: ${formData.phone}
+      Email: ${formData.email}
+      
+      Appointment Details:
+      - Department: ${formData.department}
+      - Type: ${formData.appointmentType}
+      - Preferred Date: ${formData.preferredDate}
+      - Preferred Time: ${formData.preferredTime}
+      
+      Notes: ${formData.notes || "None"}
+    `)
+
+    // Attach the PDF
+    emailData.append("attachment", pdfBlob, `Appointment_${formData.firstName}_${formData.lastName}.pdf`)
+
+    // Attach all uploaded files
+    uploadedFiles.forEach((file, index) => {
+      emailData.append(`file_${index}`, file.file, file.file.name)
+    })
 
     try {
-      await fetch("https://your-email-service-endpoint.com/send", {
+      // Using a free email service like EmailJS or your own backend
+      // Here's an example using EmailJS (you'll need to set up an account)
+      const emailJsResponse = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
         method: "POST",
-        body: formData
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          service_id: "YOUR_EMAILJS_SERVICE_ID",
+          template_id: "YOUR_EMAILJS_TEMPLATE_ID",
+          user_id: "YOUR_EMAILJS_USER_ID",
+          template_params: {
+            to_email: "vigneshospital@gmail.com",
+            subject: `New Appointment Request - ${formData.firstName} ${formData.lastName}`,
+            message: `
+              New appointment request received:
+              
+              Patient Name: ${formData.firstName} ${formData.lastName}
+              Age: ${formData.age}
+              Gender: ${formData.gender}
+              Phone: ${formData.phone}
+              Email: ${formData.email}
+              
+              Appointment Details:
+              - Department: ${formData.department}
+              - Type: ${formData.appointmentType}
+              - Preferred Date: ${formData.preferredDate}
+              - Preferred Time: ${formData.preferredTime}
+              
+              Notes: ${formData.notes || "None"}
+            `,
+            // For attachments, you might need a different approach with EmailJS
+          },
+        }),
       })
+
+      if (!emailJsResponse.ok) {
+        throw new Error("Failed to send email")
+      }
+
+      return emailJsResponse
     } catch (error) {
       console.error("Failed to send email:", error)
+      throw error
     }
   }
 
@@ -333,26 +396,25 @@ ${formData.notes || "No additional notes"}
 
     try {
       // Generate PDF
-      const pdfUrl = generatePDF()
+      const { pdfUrl, pdfBlob } = generatePDF()
       setGeneratedPDF(pdfUrl)
 
-      // Get PDF blob for email
-      const pdfBlob = await fetch(pdfUrl).then(res => res.blob())
-
-      // Send to WhatsApp
+      // Send to WhatsApp (text only)
       sendToWhatsApp()
 
-      // Send to email
+      // Send to email (with PDF and attachments)
       await sendToEmail(pdfBlob)
 
       setSubmitStatus("success")
     } catch (error) {
+      console.error("Submission error:", error)
       setSubmitStatus("error")
     } finally {
       setIsSubmitting(false)
     }
   }
 
+  // ... rest of the component code remains the same ...
   const nextStep = () => {
     if (currentStep < 3) setCurrentStep(currentStep + 1)
   }
@@ -385,6 +447,24 @@ ${formData.notes || "No additional notes"}
               <p className="text-gray-600 mb-6">
                 Your appointment request has been sent to Dr. Ragavendra Balaji. You will receive a confirmation shortly.
               </p>
+
+              {generatedPDF && (
+                <div className="mb-6">
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      const link = document.createElement('a')
+                      link.href = generatedPDF
+                      link.download = `Appointment_${formData.firstName}_${formData.lastName}.pdf`
+                      link.click()
+                    }}
+                    className="w-full"
+                  >
+                    <Download className="w-4 h-4 mr-2" />
+                    Download Your Appointment Summary
+                  </Button>
+                </div>
+              )}
 
               <div className="space-y-4">
                 <Button variant="outline" onClick={() => window.location.reload()} className="w-full">
@@ -568,7 +648,7 @@ ${formData.notes || "No additional notes"}
                         />
                       </div>
                       <div>
-                        <Label htmlFor="emergencyPhone">Emergency Contact Phone *</Label>
+                        <Label htmlFor="emergencyPhone">WhatsApp Number *</Label>
                         <Input
                           id="emergencyPhone"
                           name="emergencyPhone"
