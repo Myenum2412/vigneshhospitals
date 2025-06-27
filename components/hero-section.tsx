@@ -131,7 +131,7 @@ export function HeroSection() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-600">Main Branch</p>
-                    <p className="font-semibold text-gray-900">Salem Junction</p>
+                    <p className="font-semibold text-gray-900">2nd Agraharam, Car St, Salem</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
