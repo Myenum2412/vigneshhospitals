@@ -88,14 +88,14 @@ export default function AppointmentPage() {
               </CardHeader>
               <CardContent>
                 <address className="text-gray-600 mb-3 not-italic">
-                  No 220/135, 2nd Agrahara,
+                  No 220/135, 2ND AGRAHARA,
                   <br />
                   Salem - 636001, Tamil Nadu
                 </address>
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2">
                     <Phone className="h-4 w-4 text-green-600" aria-hidden="true" />
-                    <a href="tel:+919361202502" className="text-sm hover:text-green-600 transition-colors">+91 93612 02502</a>
+                    <a href="tel:+919851234547" className="text-sm hover:text-green-600 transition-colors">+91 93612 02502</a>
                   </div>
                 </div>
               </CardContent>
