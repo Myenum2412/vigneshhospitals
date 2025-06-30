@@ -186,6 +186,7 @@ export function Footer() {
                   <div className="flex items-center space-x-2 mt-1">
                     <Phone className="h-4 w-4 text-emerald-400 flex-shrink-0" aria-hidden="true" />
                     <a href="https://wa.me/919851234547" className="hover:text-emerald-400 transition-colors">
+                    +91 96263 61797 
                     </a>
                   </div>
                 </div>
