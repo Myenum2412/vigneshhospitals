@@ -1,16 +1,15 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Calendar, Upload, FileText, X, MessageCircle, Clock, User, ChevronDown, ChevronRight } from "lucide-react"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { Calendar, Upload, FileText, X, MessageCircle, Clock, User, ChevronRight, CheckCircle } from "lucide-react"
 
 const departments = [
   "Siddha Medicine",
@@ -152,13 +151,8 @@ Thank you!
     setIsSubmitting(true)
 
     try {
-      // Simulate form processing
       await new Promise((resolve) => setTimeout(resolve, 1000))
-
-      // Send to WhatsApp
       sendToWhatsApp()
-
-      // Reset form
       setFormData({
         firstName: "",
         lastName: "",
@@ -173,7 +167,6 @@ Thank you!
         appointmentTime: "",
       })
       setUploadedFiles([])
-
       alert("Appointment request sent to WhatsApp successfully!")
     } catch (error) {
       alert("There was an error processing your request. Please try again.")
@@ -183,78 +176,71 @@ Thank you!
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50/50 to-white">
       <div className="max-w-4xl mx-auto px-4 py-12">
-        <Card className="shadow-xl">
+        <Card className="shadow-lg border-0 rounded-2xl overflow-hidden">
+          <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6">
+            <CardTitle className="text-2xl font-bold flex items-center space-x-2">
+              <CheckCircle className="h-6 w-6" />
+              <span>Book Your Appointment</span>
+            </CardTitle>
+            <div className="flex pt-4 space-x-4">
+              <button
+                type="button"
+                className={`flex items-center space-x-2 pb-2 ${activeSection === "personal" ? "border-b-2 border-white font-medium" : "opacity-80"}`}
+                onClick={() => setActiveSection("personal")}
+              >
+                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-white text-blue-600 text-sm font-bold">
+                  1
+                </span>
+                <span>Personal Details</span>
+              </button>
+              <button
+                type="button"
+                className={`flex items-center space-x-2 pb-2 ${activeSection === "appointment" ? "border-b-2 border-white font-medium" : "opacity-80"}`}
+                onClick={() => setActiveSection("appointment")}
+              >
+                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-white text-blue-600 text-sm font-bold">
+                  2
+                </span>
+                <span>Appointment Details</span>
+              </button>
+            </div>
+          </CardHeader>
+          
           <CardContent className="p-8">
             <form onSubmit={handleSubmit} className="space-y-8">
-              {/* Section Toggle Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-6">
-                <Button
-                  type="button"
-                  variant={activeSection === "personal" ? "default" : "outline"}
-                  className="flex items-center justify-between w-full"
-                  onClick={() => setActiveSection("personal")}
-                >
-                  <div className="flex items-center">
-                    <User className="h-5 w-5 mr-2" />
-                    <span>Personal Information</span>
-                  </div>
-                  {activeSection === "personal" ? (
-                    <ChevronDown className="h-5 w-5 ml-2" />
-                  ) : (
-                    <ChevronRight className="h-5 w-5 ml-2" />
-                  )}
-                </Button>
-                <Button
-                  type="button"
-                  variant={activeSection === "appointment" ? "default" : "outline"}
-                  className="flex items-center justify-between w-full"
-                  onClick={() => setActiveSection("appointment")}
-                >
-                  <div className="flex items-center">
-                    <Calendar className="h-5 w-5 mr-2" />
-                    <span>Appointment Details</span>
-                  </div>
-                  {activeSection === "appointment" ? (
-                    <ChevronDown className="h-5 w-5 ml-2" />
-                  ) : (
-                    <ChevronRight className="h-5 w-5 ml-2" />
-                  )}
-                </Button>
-              </div>
-
               {/* Personal Information Section */}
               {activeSection === "personal" && (
-                <div className="space-y-6">
+                <div className="space-y-8">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="firstName">First Name *</Label>
+                    <div className="space-y-2">
+                      <Label htmlFor="firstName" className="text-gray-700">First Name *</Label>
                       <Input
                         id="firstName"
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleInputChange}
                         required
-                        className="mt-1"
+                        className="mt-1 h-12 rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                       />
                     </div>
-                    <div>
-                      <Label htmlFor="lastName">Last Name *</Label>
+                    <div className="space-y-2">
+                      <Label htmlFor="lastName" className="text-gray-700">Last Name *</Label>
                       <Input
                         id="lastName"
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleInputChange}
                         required
-                        className="mt-1"
+                        className="mt-1 h-12 rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="age">Age *</Label>
+                    <div className="space-y-2">
+                      <Label htmlFor="age" className="text-gray-700">Age *</Label>
                       <Input
                         id="age"
                         name="age"
@@ -262,13 +248,13 @@ Thank you!
                         value={formData.age}
                         onChange={handleInputChange}
                         required
-                        className="mt-1"
+                        className="mt-1 h-12 rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                       />
                     </div>
-                    <div>
-                      <Label htmlFor="gender">Gender *</Label>
+                    <div className="space-y-2">
+                      <Label htmlFor="gender" className="text-gray-700">Gender *</Label>
                       <Select onValueChange={(value) => handleSelectChange("gender", value)} value={formData.gender}>
-                        <SelectTrigger className="mt-1">
+                        <SelectTrigger className="mt-1 h-12 rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500">
                           <SelectValue placeholder="Select gender" />
                         </SelectTrigger>
                         <SelectContent>
@@ -281,8 +267,8 @@ Thank you!
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="phone">Phone Number *</Label>
+                    <div className="space-y-2">
+                      <Label htmlFor="phone" className="text-gray-700">Phone Number *</Label>
                       <Input
                         id="phone"
                         name="phone"
@@ -290,12 +276,11 @@ Thank you!
                         value={formData.phone}
                         onChange={handleInputChange}
                         required
-                        className="mt-1"
-                        placeholder=""
+                        className="mt-1 h-12 rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                       />
                     </div>
-                    <div>
-                      <Label htmlFor="emergencyContact">WhatsApp Number *</Label>
+                    <div className="space-y-2">
+                      <Label htmlFor="emergencyContact" className="text-gray-700">WhatsApp Number *</Label>
                       <Input
                         id="emergencyContact"
                         name="emergencyContact"
@@ -303,30 +288,31 @@ Thank you!
                         value={formData.emergencyContact}
                         onChange={handleInputChange}
                         required
-                        className="mt-1"
+                        className="mt-1 h-12 rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                       />
                     </div>
                   </div>
 
-                  <div>
-                    <Label htmlFor="address">Address</Label>
+                  <div className="space-y-2">
+                    <Label htmlFor="address" className="text-gray-700">Address</Label>
                     <Textarea
                       id="address"
                       name="address"
                       value={formData.address}
                       onChange={handleInputChange}
-                      className="mt-1"
+                      className="mt-1 rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                       rows={3}
                     />
                   </div>
 
-                  <div className="flex justify-end">
+                  <div className="flex justify-end pt-4">
                     <Button
                       type="button"
                       onClick={() => setActiveSection("appointment")}
-                      className="bg-blue-600 hover:bg-blue-700"
+                      className="bg-blue-600 hover:bg-blue-700 h-12 px-6 rounded-lg font-medium flex items-center"
                     >
-                      Next: Appointment Details
+                      Continue to Appointment
+                      <ChevronRight className="ml-2 h-5 w-5" />
                     </Button>
                   </div>
                 </div>
@@ -334,15 +320,15 @@ Thank you!
 
               {/* Appointment Details Section */}
               {activeSection === "appointment" && (
-                <div className="space-y-6">
+                <div className="space-y-8">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="department">Department/Specialization *</Label>
+                    <div className="space-y-2">
+                      <Label htmlFor="department" className="text-gray-700">Department/Specialization *</Label>
                       <Select
                         onValueChange={(value) => handleSelectChange("department", value)}
                         value={formData.department}
                       >
-                        <SelectTrigger className="mt-1">
+                        <SelectTrigger className="mt-1 h-12 rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500">
                           <SelectValue placeholder="Select department" />
                         </SelectTrigger>
                         <SelectContent>
@@ -354,13 +340,13 @@ Thank you!
                         </SelectContent>
                       </Select>
                     </div>
-                    <div>
-                      <Label htmlFor="appointmentType">Appointment Type *</Label>
+                    <div className="space-y-2">
+                      <Label htmlFor="appointmentType" className="text-gray-700">Appointment Type *</Label>
                       <Select
                         onValueChange={(value) => handleSelectChange("appointmentType", value)}
                         value={formData.appointmentType}
                       >
-                        <SelectTrigger className="mt-1">
+                        <SelectTrigger className="mt-1 h-12 rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500">
                           <SelectValue placeholder="Select type" />
                         </SelectTrigger>
                         <SelectContent>
@@ -375,8 +361,8 @@ Thank you!
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="appointmentDate">Appointment Date *</Label>
+                    <div className="space-y-2">
+                      <Label htmlFor="appointmentDate" className="text-gray-700">Appointment Date *</Label>
                       <Input
                         id="appointmentDate"
                         name="appointmentDate"
@@ -384,17 +370,17 @@ Thank you!
                         value={formData.appointmentDate}
                         onChange={handleInputChange}
                         required
-                        className="mt-1"
+                        className="mt-1 h-12 rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                         min={new Date().toISOString().split("T")[0]}
                       />
                     </div>
-                    <div>
-                      <Label htmlFor="appointmentTime">Appointment Time *</Label>
+                    <div className="space-y-2">
+                      <Label htmlFor="appointmentTime" className="text-gray-700">Appointment Time *</Label>
                       <Select
                         onValueChange={(value) => handleSelectChange("appointmentTime", value)}
                         value={formData.appointmentTime}
                       >
-                        <SelectTrigger className="mt-1">
+                        <SelectTrigger className="mt-1 h-12 rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500">
                           <SelectValue placeholder="Select time" />
                         </SelectTrigger>
                         <SelectContent>
@@ -409,47 +395,57 @@ Thank you!
                   </div>
 
                   {/* File Upload */}
-                  <div>
-                    <h3 className="text-xl font-semibold mb-6 flex items-center space-x-2">
-                      <Upload className="h-5 w-5 text-blue-600" />
-                      <span>Upload Medical Reports (if any)</span>
-                    </h3>
-
-                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-400 transition-colors">
-                      <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
-                      <p className="text-sm text-gray-600 mb-2">Choose Files</p>
-                      <p className="text-xs text-gray-500 mb-4">Max 10MB per file</p>
-                      <input
-                        type="file"
-                        multiple
-                        accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
-                        onChange={handleFileUpload}
-                        className="hidden"
-                        id="file-upload"
-                      />
-                      <Button
-                        type="button"
-                        variant="outline"
-                        onClick={() => document.getElementById("file-upload")?.click()}
-                      >
-                        Choose Files
-                      </Button>
+                  <div className="space-y-4">
+                    <div className="space-y-2">
+                      <Label className="text-gray-700 flex items-center">
+                        <Upload className="h-5 w-5 mr-2 text-blue-600" />
+                        Upload Medical Reports (if any)
+                      </Label>
+                      <div className="border-2 border-dashed border-blue-200 rounded-xl p-6 text-center bg-blue-50/50 hover:border-blue-300 transition-colors">
+                        <div className="flex flex-col items-center justify-center space-y-2">
+                          <Upload className="w-10 h-10 text-blue-400" />
+                          <p className="text-sm text-gray-600">Drag & drop files here or</p>
+                          <input
+                            type="file"
+                            multiple
+                            accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+                            onChange={handleFileUpload}
+                            className="hidden"
+                            id="file-upload"
+                          />
+                          <Button
+                            type="button"
+                            variant="outline"
+                            className="border-blue-300 text-blue-600 hover:bg-blue-50"
+                            onClick={() => document.getElementById("file-upload")?.click()}
+                          >
+                            Browse Files
+                          </Button>
+                          <p className="text-xs text-gray-500">Max 10MB per file</p>
+                        </div>
+                      </div>
                     </div>
 
                     {uploadedFiles.length > 0 && (
-                      <div className="mt-4">
-                        <Label>Uploaded Files ({uploadedFiles.length})</Label>
-                        <div className="mt-2 space-y-2">
+                      <div className="space-y-2">
+                        <Label className="text-gray-700">Uploaded Files ({uploadedFiles.length})</Label>
+                        <div className="space-y-2">
                           {uploadedFiles.map((file, index) => (
-                            <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                            <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200">
                               <div className="flex items-center space-x-3">
                                 <FileText className="w-5 h-5 text-blue-600" />
                                 <div>
-                                  <p className="text-sm font-medium">{file.file.name}</p>
+                                  <p className="text-sm font-medium text-gray-800">{file.file.name}</p>
                                   <p className="text-xs text-gray-500">{(file.file.size / 1024 / 1024).toFixed(2)} MB</p>
                                 </div>
                               </div>
-                              <Button type="button" variant="ghost" size="sm" onClick={() => removeFile(index)}>
+                              <Button 
+                                type="button" 
+                                variant="ghost" 
+                                size="sm" 
+                                className="text-gray-500 hover:text-red-500"
+                                onClick={() => removeFile(index)}
+                              >
                                 <X className="w-4 h-4" />
                               </Button>
                             </div>
@@ -460,26 +456,31 @@ Thank you!
                   </div>
 
                   {/* Clinic Information */}
-                  <Alert className="border-blue-200 bg-blue-50">
-                    <Clock className="h-4 w-4 text-blue-600" />
-                    <AlertDescription className="text-blue-800">
-                      <strong>Clinic Timings:</strong> Mon-Sat: 10AM-1PM & 5PM-8:30PM
-                      <br />
-                      <strong>Consultation Fee:</strong> ₹100 (may vary based on treatment)
-                    </AlertDescription>
+                  <Alert className="border-blue-200 bg-blue-50/50 rounded-xl">
+                    <div className="flex space-x-3">
+                      <Clock className="h-5 w-5 text-blue-600 mt-0.5" />
+                      <div>
+                        <AlertTitle className="text-blue-800 font-medium">Clinic Information</AlertTitle>
+                        <AlertDescription className="text-blue-700">
+                          <p><strong>Timings:</strong> Mon-Sat: 10AM-1PM & 5PM-8:30PM</p>
+                          <p><strong>Consultation Fee:</strong> ₹200 (may vary based on treatment)</p>
+                        </AlertDescription>
+                      </div>
+                    </div>
                   </Alert>
 
-                  <div className="flex justify-between">
+                  <div className="flex justify-between pt-4">
                     <Button
                       type="button"
                       variant="outline"
+                      className="border-gray-300 text-gray-700 hover:bg-gray-50 h-12 px-6 rounded-lg font-medium"
                       onClick={() => setActiveSection("personal")}
                     >
-                      Back to Personal Information
+                      Back to Personal Details
                     </Button>
                     <Button
                       type="submit"
-                      className="bg-blue-600 hover:bg-blue-700"
+                      className="bg-blue-600 hover:bg-blue-700 h-12 px-6 rounded-lg font-medium flex items-center"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (
