@@ -87,11 +87,9 @@ export default function AppointmentPage() {
               </CardHeader>
               <CardContent>
                 <address className="text-gray-600 mb-3 not-italic">
-                  123 Healing Street
+                  No 220/135, 2nd Agrahara,
                   <br />
-                  Traditional Medicine District
-                  <br />
-                  Chennai - 600001
+                  Salem - 636001, Tamil Nadu
                 </address>
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2">
