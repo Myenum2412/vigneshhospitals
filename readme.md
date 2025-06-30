@@ -121,7 +121,7 @@ For queries or feedback, feel free to reach out through:
 
 - 🌐 Website: [vigneshhospitals.com](https://www.vigneshhospitals.com/)
 - 📧 Email: info@vigneshhospitals.com
-- 📞 Phone: +91-XXXXXXXXXX
+- 📞 Phone: +91-+91 96263 61797
 
 ---
 
