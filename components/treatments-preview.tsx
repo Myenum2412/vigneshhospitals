@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import { Stethoscope, Bone, Sparkles, BabyIcon as Kidney, Heart, Shield, User, MoreHorizontal } from "lucide-react"
+import { Stethoscope, Bone, Sparkles, BabyIcon as Kidney, Heart, Shield, User, MoreHorizontal, Gem, CircleDotDashed, Scissors, Droplets, Activity } from "lucide-react"
 
 export function TreatmentsPreview() {
   const treatments = [
@@ -14,6 +14,13 @@ export function TreatmentsPreview() {
       successRate: "92%",
     },
     {
+      icon: Gem,
+      title: "Kidney Stone",
+      description: "Non-invasive stone dissolution therapy",
+      duration: "1-3 months",
+      successRate: "90%",
+    },
+    {
       icon: Bone,
       title: "Arthritis",
       description: "Joint pain relief through traditional herbal treatments",
@@ -21,47 +28,40 @@ export function TreatmentsPreview() {
       successRate: "88%",
     },
     {
-      icon: Sparkles,
-      title: "Skin Disorders",
-      description: "Holistic skin care for lasting results",
-      duration: "2-4 months",
-      successRate: "95%",
-    },
-    {
-      icon: Kidney,
-      title: "Kidney Stones",
-      description: "Non-invasive stone dissolution therapy",
-      duration: "1-3 months",
-      successRate: "90%",
-    },
-    {
-      icon: Heart,
+      icon: CircleDotDashed,
       title: "Piles",
       description: "Gentle treatment without surgical intervention",
       duration: "2-4 months",
       successRate: "93%",
     },
     {
-      icon: Shield,
-      title: "Thyroid",
-      description: "Hormonal balance through natural medicine",
-      duration: "6-12 months",
-      successRate: "85%",
-    },
-    {
-      icon: User,
-      title: "Hair Fall",
+      icon: Scissors,
+      title: "Hair Problems",
       description: "Restore hair growth with herbal treatments",
       duration: "3-6 months",
       successRate: "87%",
     },
     {
+      icon: Sparkles,
+      title: "Skin Problems",
+      description: "Holistic skin care for lasting results",
+      duration: "2-4 months",
+      successRate: "95%",
+    },
+    {
+      icon: Droplets,
+      title: "Menstrual Disorder",
+      description: "Natural hormonal balance and cycle regulation",
+      duration: "3-6 months",
+      successRate: "91%",
+    },
+    {
       icon: MoreHorizontal,
-      title: "Male Impotency",
+      title: "Impotency/Infertility",
       description: "Confidential treatment with proven results",
       duration: "4-8 months",
       successRate: "89%",
-    },
+    }
   ]
 
   return (
