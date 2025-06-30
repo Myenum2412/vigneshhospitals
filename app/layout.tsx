@@ -45,14 +45,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://vignesh-hospital.com"),
+  metadataBase: new URL("https://www.vigneshhospitals.com/"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://vignesh-hospital.com",
+    url: "https://www.vigneshhospitals.com/",
     siteName: "Vignesh Siddha and Homeopathy Hospital",
     title: "Vignesh Siddha and Homeopathy Hospital - Traditional Healing Since 1995",
     description:
