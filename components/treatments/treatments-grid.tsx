@@ -13,12 +13,13 @@ import {
   Heart,
   Shield,
   User,
-  Scale,
   Baby,
   Clock,
   CheckCircle,
   Calendar,
   ArrowRight,
+  Brain,
+  Activity,
 } from "lucide-react"
 import Link from "next/link"
 
@@ -54,6 +55,33 @@ export function TreatmentsGrid() {
       },
     },
     {
+      id: "kidney-stones",
+      icon: Kidney,
+      title: "Kidney Stone",
+      category: "Urological",
+      shortDescription: "Pain in abdomen, painful urination, blood in urine.",
+      fullDescription:
+        "Kidney stones can cause severe pain and complications. Our natural approach helps dissolve stones and prevents recurrence without invasive procedures.",
+      approach: "Herbal formulations that break down stones, along with hydration therapy.",
+      symptoms: ["Severe abdominal pain", "Painful urination", "Blood in urine", "Nausea", "Frequent urination"],
+      duration: "1-3 months",
+      successRate: "90%",
+      color: "from-teal-500 to-cyan-500",
+      bgColor: "bg-teal-50",
+      iconColor: "text-teal-600",
+      treatmentSteps: [
+        "Ultrasound assessment",
+        "Stone-dissolving herbal medicines",
+        "Hydration therapy protocol",
+        "Prevention guidelines",
+      ],
+      testimonial: {
+        name: "Arun Kumar",
+        text: "Avoided surgery completely. The stones dissolved naturally with their herbal treatment.",
+        rating: 5,
+      },
+    },
+    {
       id: "arthritis",
       icon: Bone,
       title: "Arthritis",
@@ -81,63 +109,9 @@ export function TreatmentsGrid() {
       },
     },
     {
-      id: "skin-disorders",
-      icon: Sparkles,
-      title: "Skin Disorders",
-      category: "Skin Health",
-      shortDescription: "Psoriasis, eczema, acne, rashes, discoloration.",
-      fullDescription:
-        "Skin disorders often reflect internal imbalances. Our holistic approach treats both internal causes and external symptoms for clear, healthy skin.",
-      approach: "Internal detox using herbal mixtures and topical natural applications.",
-      symptoms: ["Skin rashes", "Itching", "Discoloration", "Dry patches", "Acne breakouts"],
-      duration: "2-4 months",
-      successRate: "95%",
-      color: "from-pink-500 to-rose-500",
-      bgColor: "bg-pink-50",
-      iconColor: "text-pink-600",
-      treatmentSteps: [
-        "Skin analysis and blood purification",
-        "Internal detox medicines",
-        "Topical herbal applications",
-        "Dietary and lifestyle guidance",
-      ],
-      testimonial: {
-        name: "Priya Sharma",
-        text: "My skin problems that persisted for years were completely cured with their natural treatments.",
-        rating: 5,
-      },
-    },
-    {
-      id: "kidney-stones",
-      icon: Kidney,
-      title: "Kidney Stones",
-      category: "Digestive",
-      shortDescription: "Pain in abdomen, painful urination, blood in urine.",
-      fullDescription:
-        "Kidney stones can cause severe pain and complications. Our natural approach helps dissolve stones and prevents recurrence without invasive procedures.",
-      approach: "Herbal formulations that break down stones, along with hydration therapy.",
-      symptoms: ["Severe abdominal pain", "Painful urination", "Blood in urine", "Nausea", "Frequent urination"],
-      duration: "1-3 months",
-      successRate: "90%",
-      color: "from-teal-500 to-cyan-500",
-      bgColor: "bg-teal-50",
-      iconColor: "text-teal-600",
-      treatmentSteps: [
-        "Ultrasound assessment",
-        "Stone-dissolving herbal medicines",
-        "Hydration therapy protocol",
-        "Prevention guidelines",
-      ],
-      testimonial: {
-        name: "Arun Kumar",
-        text: "Avoided surgery completely. The stones dissolved naturally with their herbal treatment.",
-        rating: 5,
-      },
-    },
-    {
       id: "piles",
       icon: Heart,
-      title: "Piles (Hemorrhoids)",
+      title: "Piles",
       category: "Digestive",
       shortDescription: "Pain, swelling, and bleeding during bowel movements.",
       fullDescription:
@@ -162,38 +136,11 @@ export function TreatmentsGrid() {
       },
     },
     {
-      id: "thyroid",
-      icon: Shield,
-      title: "Thyroid Disorders",
-      category: "Lifestyle",
-      shortDescription: "Hypothyroidism, hyperthyroidism, fatigue, weight issues.",
-      fullDescription:
-        "Thyroid imbalances affect metabolism and overall health. Our approach focuses on glandular support and hormonal balance through natural means.",
-      approach: "Hormonal regulation through glandular support herbs and diet.",
-      symptoms: ["Fatigue", "Weight changes", "Hair loss", "Mood swings", "Temperature sensitivity"],
-      duration: "6-12 months",
-      successRate: "85%",
-      color: "from-purple-500 to-indigo-500",
-      bgColor: "bg-purple-50",
-      iconColor: "text-purple-600",
-      treatmentSteps: [
-        "Thyroid function assessment",
-        "Glandular support medicines",
-        "Metabolic balancing herbs",
-        "Long-term monitoring",
-      ],
-      testimonial: {
-        name: "Lakshmi Devi",
-        text: "My thyroid levels normalized naturally without synthetic hormones.",
-        rating: 5,
-      },
-    },
-    {
       id: "hair-fall",
       icon: User,
-      title: "Hair Fall / Dandruff",
+      title: "Hair Problems",
       category: "Skin Health",
-      shortDescription: "Thinning hair, itchy scalp, bald spots.",
+      shortDescription: "Hair fall, thinning hair, dandruff, itchy scalp, bald spots.",
       fullDescription:
         "Hair problems often indicate internal imbalances. Our comprehensive approach addresses both scalp health and internal factors affecting hair growth.",
       approach: "Herbal oils, internal blood purifiers, and lifestyle guidance.",
@@ -216,13 +163,67 @@ export function TreatmentsGrid() {
       },
     },
     {
-      id: "male-impotency",
-      icon: User,
-      title: "Male Sexual Health",
-      category: "Sexual Health",
-      shortDescription: "Lack of stamina, erection issues, infertility.",
+      id: "skin-disorders",
+      icon: Sparkles,
+      title: "Skin Problems",
+      category: "Skin Health",
+      shortDescription: "Psoriasis, eczema, acne, rashes, discoloration, allergies.",
       fullDescription:
-        "Sexual health issues can affect confidence and relationships. Our confidential treatment approach addresses both physical and psychological aspects.",
+        "Skin disorders often reflect internal imbalances. Our holistic approach treats both internal causes and external symptoms for clear, healthy skin.",
+      approach: "Internal detox using herbal mixtures and topical natural applications.",
+      symptoms: ["Skin rashes", "Itching", "Discoloration", "Dry patches", "Acne breakouts"],
+      duration: "2-4 months",
+      successRate: "95%",
+      color: "from-pink-500 to-rose-500",
+      bgColor: "bg-pink-50",
+      iconColor: "text-pink-600",
+      treatmentSteps: [
+        "Skin analysis and blood purification",
+        "Internal detox medicines",
+        "Topical herbal applications",
+        "Dietary and lifestyle guidance",
+      ],
+      testimonial: {
+        name: "Priya Sharma",
+        text: "My skin problems that persisted for years were completely cured with their natural treatments.",
+        rating: 5,
+      },
+    },
+    {
+      id: "menstrual-disorder",
+      icon: Baby,
+      title: "Menstrual Disorder",
+      category: "Women's Health",
+      shortDescription: "PCOD, irregular periods, heavy bleeding, painful periods, hormonal imbalance.",
+      fullDescription:
+        "Menstrual disorders can significantly impact a woman's quality of life. Our approach addresses hormonal balance, reproductive health, and overall wellness through natural methods.",
+      approach: "Hormonal balancing herbs, uterine tonics, and stress management techniques.",
+      symptoms: ["Irregular periods", "Heavy bleeding", "Painful periods", "PCOD/PCOS", "Mood swings"],
+      duration: "4-8 months",
+      successRate: "91%",
+      color: "from-rose-500 to-pink-500",
+      bgColor: "bg-rose-50",
+      iconColor: "text-rose-600",
+      treatmentSteps: [
+        "Comprehensive hormonal assessment",
+        "Hormonal balancing medicines",
+        "Uterine cleansing therapy",
+        "Lifestyle and dietary guidance",
+      ],
+      testimonial: {
+        name: "Kavitha Reddy",
+        text: "My PCOD is completely under control and my periods are regular now.",
+        rating: 5,
+      },
+    },
+    {
+      id: "male-impotency",
+      icon: Shield,
+      title: "Impotency/Infertility",
+      category: "Sexual Health",
+      shortDescription: "Lack of stamina, erection issues, infertility, low sperm count.",
+      fullDescription:
+        "Sexual health issues can affect confidence and relationships. Our confidential treatment approach addresses both physical and psychological aspects for both men and women.",
       approach: "Personalized tonics, stress relief methods, hormonal balance treatments.",
       symptoms: ["Low stamina", "Erectile dysfunction", "Premature ejaculation", "Low libido", "Infertility"],
       duration: "4-8 months",
@@ -243,56 +244,56 @@ export function TreatmentsGrid() {
       },
     },
     {
-      id: "obesity",
-      icon: Scale,
-      title: "Obesity / Weight Management",
-      category: "Lifestyle",
-      shortDescription: "Excess weight, low metabolism, sluggish digestion.",
+      id: "nervous-weakness",
+      icon: Brain,
+      title: "Nervous Weakness",
+      category: "Neurological",
+      shortDescription: "Mental fatigue, memory loss, anxiety, depression, stress-related disorders.",
       fullDescription:
-        "Weight management requires a holistic approach addressing metabolism, digestion, and lifestyle factors for sustainable results.",
-      approach: "Herbal metabolism boosters, detox therapies, and diet plan.",
-      symptoms: ["Excess weight", "Slow metabolism", "Poor digestion", "Low energy", "Joint stress"],
-      duration: "6-12 months",
-      successRate: "82%",
-      color: "from-green-500 to-teal-500",
-      bgColor: "bg-green-50",
-      iconColor: "text-green-600",
+        "Nervous weakness affects mental clarity and emotional well-being. Our approach strengthens the nervous system naturally while addressing underlying stress factors.",
+      approach: "Nerve-strengthening herbs, stress management, and mental wellness therapies.",
+      symptoms: ["Mental fatigue", "Memory problems", "Anxiety", "Depression", "Concentration issues"],
+      duration: "3-6 months",
+      successRate: "85%",
+      color: "from-purple-500 to-indigo-500",
+      bgColor: "bg-purple-50",
+      iconColor: "text-purple-600",
       treatmentSteps: [
-        "Metabolic assessment",
-        "Metabolism boosting herbs",
-        "Detoxification therapy",
-        "Personalized diet plan",
+        "Mental health assessment",
+        "Nerve-strengthening medicines",
+        "Stress management techniques",
+        "Meditation and lifestyle guidance",
       ],
       testimonial: {
-        name: "Meera Patel",
-        text: "Lost 25 kg naturally without any side effects. The approach is sustainable and healthy.",
+        name: "Ramesh Patel",
+        text: "My anxiety and mental fatigue are completely gone. I feel mentally strong and focused now.",
         rating: 5,
       },
     },
     {
-      id: "womens-health",
-      icon: Baby,
-      title: "Women's Health",
-      category: "Women's Health",
-      shortDescription: "PCOD, irregular periods, hormonal imbalance, infertility.",
+      id: "ulcer",
+      icon: Activity,
+      title: "Ulcer",
+      category: "Digestive",
+      shortDescription: "Stomach pain, acidity, gastritis, peptic ulcers, digestive disorders.",
       fullDescription:
-        "Women's health issues require specialized care. Our approach addresses hormonal balance, reproductive health, and overall wellness.",
-      approach: "Womb cleansing herbs, hormone stabilizers, and stress support.",
-      symptoms: ["Irregular periods", "PCOD/PCOS", "Hormonal imbalance", "Infertility", "Mood swings"],
-      duration: "4-8 months",
-      successRate: "91%",
-      color: "from-rose-500 to-pink-500",
-      bgColor: "bg-rose-50",
-      iconColor: "text-rose-600",
+        "Ulcers can cause severe discomfort and affect daily life. Our natural approach heals ulcers from within while preventing recurrence through dietary and lifestyle modifications.",
+      approach: "Ulcer-healing herbs, digestive tonics, and dietary regulation.",
+      symptoms: ["Stomach pain", "Burning sensation", "Acidity", "Nausea", "Loss of appetite"],
+      duration: "2-4 months",
+      successRate: "92%",
+      color: "from-green-500 to-teal-500",
+      bgColor: "bg-green-50",
+      iconColor: "text-green-600",
       treatmentSteps: [
-        "Comprehensive women's health assessment",
-        "Hormonal balancing medicines",
-        "Reproductive system cleansing",
-        "Stress management support",
+        "Digestive system assessment",
+        "Ulcer-healing herbal medicines",
+        "Digestive fire enhancement",
+        "Dietary and lifestyle modifications",
       ],
       testimonial: {
-        name: "Kavitha Reddy",
-        text: "My PCOD is completely under control and my periods are regular now.",
+        name: "Lakshmi Devi",
+        text: "My chronic ulcer problem is completely healed. No more stomach pain or acidity issues.",
         rating: 5,
       },
     },
@@ -357,7 +358,7 @@ export function TreatmentsGrid() {
                     <DialogTrigger asChild>
                       <Button
                         variant="outline"
-                        className="flex-1 hover:bg-green-50 hover:text-green-600 hover:border-green-600"
+                        className="flex-1 hover:bg-green-50 hover:text-green-600 hover:border-green-600 bg-transparent"
                         onClick={() => setSelectedTreatment(treatment)}
                       >
                         View Details
@@ -467,8 +468,12 @@ export function TreatmentsGrid() {
               <Button asChild size="lg" className="bg-green-600 hover:bg-green-700">
                 <Link href="/appointment">Schedule Consultation</Link>
               </Button>
-              <Button variant="outline" size="lg" className="border-green-200 text-green-700 hover:bg-green-50">
-                <Link href="tel:+919876543210">Call for Guidance</Link>
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-green-200 text-green-700 hover:bg-green-50 bg-transparent"
+              >
+                <Link href="tel:+919851234547">Call for Guidance</Link>
               </Button>
             </div>
           </div>
