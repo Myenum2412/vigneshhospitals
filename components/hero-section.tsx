@@ -44,8 +44,7 @@ export function HeroSection() {
                 <span className="block text-green-600">Modern Care</span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed max-w-2xl">
-                Experience the power of Siddha and Homeopathy medicine at Vignesh Multi Speciality Hospital. Three
-                generations of trusted healing across Salem.
+                Trusted by generations in Salem, Vignesh Multi Speciality Hospital offers expert care in Siddha and Homeopathy medicine.
               </p>
             </div>
 
