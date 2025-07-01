@@ -45,7 +45,7 @@ export function HeroSection() {
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed max-w-2xl">
                 Experience the power of Siddha and Homeopathy medicine at Vignesh Multi Speciality Hospital. Three
-                generations of trusted healing across Salem, Namakkal, and Rasipuram.
+                generations of trusted healing across Salem.
               </p>
             </div>
 
