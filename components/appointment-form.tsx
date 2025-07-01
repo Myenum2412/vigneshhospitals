@@ -43,9 +43,7 @@ const timeSlots = [
 const appointmentTypes = [
   "New Consultation",
   "Follow-up Visit",
-  "Second Opinion",
   "Emergency Consultation",
-  "Chronic Disease Management",
 ]
 
 interface UploadedFile {
