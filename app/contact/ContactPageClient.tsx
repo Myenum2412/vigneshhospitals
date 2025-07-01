@@ -13,15 +13,15 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 export default function ContactPageClient() {
   const branches = [
     {
-      name: "Vignesh Hospital - Agrahara",
-      address: "No 220/135, 2ND Agraharam, SALEM - 636001.",
+      name: "Vignesh Hospital - Agraharam",
+      address: "No 220/135, 2ND AGRAHARA, SALEM - 636001.",
       phone: "+91 94871 61797",
       email: "vigneshospital@gmail.com",
       whatsapp: "+91 94871 61797",
       isMain: true,
       color: "green",
-      landmarks: ["2nd Agraharam", "Salem Town"],
-      directions: "Located in 2nd Agraharam, Salem. Easily accessible from town bus routes.",
+      landmarks: ["2nd Agrahara", "Salem Town"],
+      directions: "Located in 2nd Agrahara, Salem. Easily accessible from town bus routes.",
       embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4038.9289011661354!2d78.1674673!3d11.6583909!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1ce5a73d94d%3A0x3fc9713c5f90387a!2s2nd%20Agraharam%2C%20Car%20St%2C%20Salem%2C%20Tamil%20Nadu%20636001!5e0!3m2!1sen!2sin!4v1719063000000"
     },
     {
