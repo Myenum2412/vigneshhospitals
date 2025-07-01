@@ -178,7 +178,7 @@ export function Footer() {
                   <div className="flex items-start space-x-2">
                     <MapPin className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" aria-hidden="true" />
                     <span>
-                      No 220/135, 2nd Agrahara,
+                      No 220/135, 2nd Agraharam,
                       <br />
                       Salem - 636001, Tamil Nadu
                     </span>
