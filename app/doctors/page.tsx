@@ -26,7 +26,7 @@ const doctors = [
       "Panchakarma Therapies",
       "Geriatric Care"
     ],
-    image: "/images/p-ravi.jpeg",
+    image: "/images/dad.jpeg",
     rating: 4.9,
     patients: "50,000+",
     consultationFee: "₹200",
