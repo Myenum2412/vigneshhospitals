@@ -8,7 +8,7 @@ export function TreatmentsPreview() {
   const treatments = [
     {
       icon: Stethoscope,
-      title: "Asthma",
+      title: "Asthma allergy",
       description: "Natural respiratory care with proven Siddha remedies",
       duration: "3-6 months",
       successRate: "92%",
