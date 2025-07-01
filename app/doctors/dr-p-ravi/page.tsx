@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     url: "/doctors/dr-p-ravi",
     images: [
       {
-        url: "/images/p-ravi.jpeg",
+        url: "/images/dad.jpeg",
         width: 1200,
         height: 630,
         alt: "Dr P Ravi Profile Salem",
