@@ -12,16 +12,16 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Calendar, Upload, FileText, X, MessageCircle, Clock, User, ChevronRight, CheckCircle } from "lucide-react"
 
 const departments = [
-  "Siddha Medicine",
-  "Homeopathy",
-  "General Medicine",
-  "Chronic Disease Management",
-  "Fertility Treatment",
-  "Mental Health",
-  "Skin Disorders",
-  "Respiratory Disorders",
-  "Joint & Bone Health",
-  "Digestive Health",
+  "Asthma",
+"Kidney Stone",
+"Arthritis",
+"Piles",
+"Hair Problems",
+"Skin Problems",
+"Menstrual Disorder",
+"Impotency/Infertility",
+"Nervous weakness",
+"Ulcer",
 ]
 
 const timeSlots = [
@@ -321,7 +321,7 @@ Thank you!
                 <div className="space-y-8">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="department" className="text-gray-700">Department/Specialization *</Label>
+                      <Label htmlFor="department" className="text-gray-700">I am Looking for Treatment for ... *</Label>
                       <Select
                         onValueChange={(value) => handleSelectChange("department", value)}
                         value={formData.department}
