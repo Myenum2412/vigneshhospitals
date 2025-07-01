@@ -113,7 +113,7 @@ const doctorData = {
   ],
   clinicDetails: {
     name: "Vignesh Hospital - Salem Main Branch",
-    address: "123 Main Street, Salem, Tamil Nadu 636001",
+    address: "No 220/135, 2ND AGRAHARA, SALEM - 636001.",
     timings: {
       weekdays: "Monday to Saturday: 9:00 AM - 1:00 PM, 4:00 PM - 8:00 PM",
       sunday: "Sunday: 9:00 AM - 1:00 PM (Emergency Only)",
