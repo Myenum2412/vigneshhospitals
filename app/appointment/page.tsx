@@ -87,7 +87,7 @@ export default function AppointmentPage() {
               </CardHeader>
               <CardContent>
                 <address className="text-gray-600 mb-3 not-italic">
-                  No 220/135, 2nd Agrahara,
+                  No 220/135, 2nd Agraharam,,
                   <br />
                   Salem - 636001, Tamil Nadu
                 </address>
