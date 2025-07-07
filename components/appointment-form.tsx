@@ -12,16 +12,16 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Calendar, Upload, FileText, X, MessageCircle, Clock, User, ChevronRight, CheckCircle } from "lucide-react"
 
 const departments = [
-  "Asthma",
-"Kidney Stone",
-"Arthritis",
-"Piles",
-"Hair Problems",
-"Skin Problems",
-"Menstrual Disorder",
-"Impotency/Infertility",
-"Nervous weakness",
-"Ulcer",
+  "Siddha Medicine",
+  "Homeopathy",
+  "General Medicine",
+  "Chronic Disease Management",
+  "Fertility Treatment",
+  "Mental Health",
+  "Skin Disorders",
+  "Respiratory Disorders",
+  "Joint & Bone Health",
+  "Digestive Health",
 ]
 
 const timeSlots = [
@@ -43,7 +43,24 @@ const timeSlots = [
 const appointmentTypes = [
   "New Consultation",
   "Follow-up Visit",
+  "Second Opinion",
   "Emergency Consultation",
+  "Chronic Disease Management",
+]
+
+const branches = [
+  {
+    name: "Vignesh hospital 2nd Agraharam branch",
+    number: "+919487161797"
+  },
+  {
+    name: "Vignesh Hospital junction branch",
+    number: "+919616213713"
+  },
+  {
+    name: "Ruthra clinic (A unit of vignesh hospital)",
+    number: "+919682926829"
+  }
 ]
 
 interface UploadedFile {
@@ -65,6 +82,7 @@ export function AppointmentForm() {
     appointmentType: "",
     appointmentDate: "",
     appointmentTime: "",
+    branch: "",
   })
 
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([])
@@ -112,10 +130,24 @@ export function AppointmentForm() {
   }
 
   const sendToWhatsApp = () => {
-    const whatsappNumber = "919851234547"
+    if (!formData.branch) {
+      alert("Please select a branch")
+      return
+    }
+
+    const selectedBranch = branches.find(b => b.name === formData.branch)
+    if (!selectedBranch) {
+      alert("Invalid branch selected")
+      return
+    }
+
+    // Remove country code and any non-digit characters
+    const whatsappNumber = selectedBranch.number.replace(/\D/g, '').replace(/^91/, '')
 
     const appointmentMessage = `
 🏥 *VIGNESH HOSPITAL - Appointment Request*
+
+📍 *Branch:* ${formData.branch}
 
 👤 *Personal Information:*
 • Name: ${formData.firstName} ${formData.lastName}
@@ -163,6 +195,7 @@ Thank you!
         appointmentType: "",
         appointmentDate: "",
         appointmentTime: "",
+        branch: "",
       })
       setUploadedFiles([])
       alert("Appointment request sent to WhatsApp successfully!")
@@ -319,9 +352,28 @@ Thank you!
               {/* Appointment Details Section */}
               {activeSection === "appointment" && (
                 <div className="space-y-8">
+                  <div className="space-y-2">
+                    <Label htmlFor="branch" className="text-gray-700">Select Branch *</Label>
+                    <Select
+                      onValueChange={(value) => handleSelectChange("branch", value)}
+                      value={formData.branch}
+                    >
+                      <SelectTrigger className="mt-1 h-12 rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                        <SelectValue placeholder="Select branch" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {branches.map((branch) => (
+                          <SelectItem key={branch.name} value={branch.name}>
+                            {branch.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="department" className="text-gray-700">I am Looking for Treatment for ... *</Label>
+                      <Label htmlFor="department" className="text-gray-700">Department/Specialization *</Label>
                       <Select
                         onValueChange={(value) => handleSelectChange("department", value)}
                         value={formData.department}
